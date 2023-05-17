@@ -52,7 +52,3 @@
     def test_get_matrix():
         assert asyncio.run(get_matrix(SOURCE_URL)) == TRAVERSAL
     ```
-
-При проверке мы также будем обращать внимание на тесты, type hints, структуру решения и общее качество кода.
-
-Удачи в выполнении задачи и не забывайте о [The Zen of Python](https://www.python.org/dev/peps/pep-0020/#the-zen-of-python)! :)
