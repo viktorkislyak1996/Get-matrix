@@ -1,10 +1,10 @@
-# Задача
+# Technical specification
 
-## Условие
+## Task condition
 
-Необходимо реализовать Python-библиотеку, которая осуществляет получение квадратной матрицы (NxN) с удалённого сервера и возвращает её пользователю в виде `List[int]`. Этот список должен содержать результат обхода полученной матрицы по спирали: против часовой стрелки, начиная с левого верхнего угла (см. test case ниже).
+It is necessary to implement a Python library that retrieves a square matrix (NxN) from a remote server and returns it to the user in the form of a `List[int]`. This list should contain the result of traversing the resulting matrix in a spiral: counterclockwise, starting from the upper-left corner (see test case below).
 
-Пример исходной матрицы:
+Example of the original matrix
 
 ```
 +-----+-----+-----+-----+
@@ -18,27 +18,27 @@
 +-----+-----+-----+-----+
 ```
 
-Матрица гарантированно содержит целые неотрицательные числа. Форматирование границ иными символами не предполагается.
+The matrix is guaranteed to contain non-negative integers. Formatting borders with other characters is not assumed.
 
-## Требования к выполнению и оформлению
+## Requirements for implementation and design
 
-- Библиотека содержит функцию со следующим интерфейсом:
+- The library contains a function with the following interface:
 
     ```python
     async def get_matrix(url: str) -> List[int]:
         ...
     ```
 
-- Функция единственным аргументом получает URL для загрузки матрицы с сервера по протоколу HTTP(S).
-- Функция возвращает список, содержащий результат обхода полученной матрицы по спирали: против часовой стрелки, начиная с левого верхнего угла.
-- Взаимодействие с сервером должно быть реализовано асинхронно - посредством aiohttp, httpx или другого компонента на asyncio.
-- Библиотека должна корректно обрабатывать ошибки сервера и сетевые ошибки (5xx, Connection Timeout, Connection Refused, ...).
-- В дальнейшем размерность матрицы может быть изменена с сохранением форматирования. Библиотека должна сохранить свою работоспособность на квадратных матрицах другой размерности.
-- Решение задачи необходимо разместить на одном из публичных git-хостингов (GitHub, GitLab, Bitbucket). Можно также выслать решение в виде архива (zip, tar). Загружать библиотеку в PyPi или другие репозитории не требуется.
+- The function gets the URL for fetching the matrix from the server using the HTTP(S) protocol as a single argument.
+- The function returns a list containing the result of traversing the resulting matrix in a spiral: counterclockwise, starting from the upper-left corner.
+- Interaction with the server must be implemented asynchronously - via aiohttp, https or another component on asyncio.
+- The library must correctly handle server and network errors. (5xx, Connection Timeout, Connection Refused, ...).
+- In the future, the dimension of the matrix can be changed while maintaining the formatting. The library should maintain its operability on square matrices of a different dimension.
+- The solution must be placed on one of the public git-hosting (GitHub, GitLab, Bitbucket). You can also send the solution as an archive (zip, tar). There is no need to upload the library to PyPI or other repositories.
 
-## Проверка решения
+## Checking the solution
 
-- Для самостоятельной проверки можно использовать следующий test case:
+- For self-checking, you can use the following test case:
 
     ```python
     SOURCE_URL = 'https://raw.githubusercontent.com/avito-tech/python-trainee-assignment/main/matrix.txt'
